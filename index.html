@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Семейный недельный лимит</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="limit-panel" aria-labelledby="limit-title">
+      <div class="panel-header">
+        <p class="eyebrow">Планировщик бюджета</p>
+        <h1 id="limit-title">Недельный семейный лимит</h1>
+      </div>
+
+      <section class="mascot" id="mascot-block" aria-labelledby="mascot-title">
+        <div class="mascot-avatar" aria-hidden="true">
+          <div class="mascot-face">
+            <span class="mascot-eye mascot-eye-left"></span>
+            <span class="mascot-eye mascot-eye-right"></span>
+            <span class="mascot-smile"></span>
+          </div>
+        </div>
+        <div class="mascot-copy">
+          <h2 id="mascot-title">Совет от маскота</h2>
+          <p id="mascot-message">Пока все спокойно: лимит держится, бюджет дышит ровно.</p>
+        </div>
+      </section>
+
+      <form class="limit-form" id="limit-form">
+        <label for="weekly-limit">Сумма лимита</label>
+        <div class="input-row">
+          <input
+            id="weekly-limit"
+            name="weekly-limit"
+            type="number"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Например, 15000"
+            autocomplete="off"
+          >
+          <span class="currency" aria-hidden="true">₽</span>
+        </div>
+        <button type="submit">Сохранить</button>
+        <p class="status" id="save-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <section class="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Текущий остаток</h2>
+        <p class="remaining" id="remaining-budget">0 ₽</p>
+      </section>
+
+      <section class="expenses" aria-labelledby="expenses-title">
+        <h2 id="expenses-title">Расходы</h2>
+
+        <form class="category-form" id="category-form">
+          <label for="category-name">Новая категория</label>
+          <div class="category-row">
+            <input
+              id="category-name"
+              name="category-name"
+              type="text"
+              placeholder="Например, аптека"
+              autocomplete="off"
+            >
+            <button type="submit">Добавить категорию</button>
+          </div>
+          <p class="status" id="category-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <ul class="category-list" id="category-list"></ul>
+
+        <form class="expense-form" id="expense-form">
+          <div class="field">
+            <label for="expense-amount">Сумма расхода</label>
+            <div class="input-row">
+              <input
+                id="expense-amount"
+                name="expense-amount"
+                type="number"
+                min="0"
+                step="0.01"
+                inputmode="decimal"
+                placeholder="Например, 850"
+                autocomplete="off"
+              >
+              <span class="currency" aria-hidden="true">₽</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="expense-category">Категория</label>
+            <select id="expense-category" name="expense-category">
+              <option value="Продукты">Продукты</option>
+              <option value="Транспорт">Транспорт</option>
+              <option value="Развлечения">Развлечения</option>
+              <option value="Прочее">Прочее</option>
+            </select>
+          </div>
+
+          <button type="submit">Добавить</button>
+          <p class="status" id="expense-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <ul class="expense-list" id="expense-list"></ul>
+      </section>
+
+      <section class="week-actions" aria-labelledby="week-actions-title">
+        <h2 id="week-actions-title">Завершение недели</h2>
+        <button type="button" class="secondary-button" id="end-week-button">Завершить неделю</button>
+        <p class="status" id="week-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="history" aria-labelledby="history-title">
+        <h2 id="history-title">История недель</h2>
+        <ul class="history-list" id="history-list"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
